@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Rajgor Jewelry</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/admin.css">
+  <!-- <link rel="stylesheet" href="./css/admin.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  <header class="admin-topbar">
+    <a class="brand" href="index.html">♢ RAJGOR <span>JEWELRY</span></a>
+    <div class="admin-top-actions">
+      <a href="index.html" target="_blank" rel="noopener">View Website ↗</a>
+      <button type="button" class="btn btn-outline" id="logoutButton">Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <p class="sidebar-label">MANAGEMENT</p>
+      <button class="sidebar-link active" type="button" data-section="overview">▦ Overview</button>
+      <button class="sidebar-link" type="button" data-section="products">◇ Products</button>
+      <button class="sidebar-link" type="button" data-section="enquiries">✉ Enquiries</button>
+      <a class="sidebar-link" href="index.html">← Back to Website</a>
+      <div class="sidebar-note">Frontend preview mode</div>
+    </aside>
+
+    <main class="admin-main">
+      <div class="demo-warning">
+        <strong>Demo mode:</strong> Data is saved in this browser only. This is not connected to MongoDB yet.
+      </div>
+
+      <section class="admin-section active" id="section-overview">
+        <p class="eyebrow">STORE CONTROL</p>
+        <h1>Dashboard Overview</h1>
+        <p class="admin-subtitle">A quick look at your jewellery store demo.</p>
+
+        <div class="stats-grid">
+          <article class="stat-card"><span>Total Products</span><strong id="statProducts">0</strong><small>Sample and saved products</small></article>
+          <article class="stat-card"><span>Total Enquiries</span><strong id="statEnquiries">0</strong><small>Saved in this browser</small></article>
+          <article class="stat-card"><span>New Enquiries</span><strong id="statNewEnquiries">0</strong><small>Waiting for review</small></article>
+        </div>
+
+        <div class="admin-panel">
+          <div class="panel-heading"><h2>Quick Actions</h2></div>
+          <div class="quick-actions">
+            <button class="btn btn-gold" type="button" data-open-section="products">Manage Products</button>
+            <button class="btn btn-dark" type="button" data-open-section="enquiries">View Enquiries</button>
+            <a class="btn btn-dark" href="index.html#featured">Preview Store</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-products">
+        <p class="eyebrow">CATALOGUE</p>
+        <h1>Product Management</h1>
+        <p class="admin-subtitle">Add, edit or delete demo products.</p>
+
+        <div class="admin-panel">
+          <div class="panel-heading"><h2 id="productFormTitle">Add New Product</h2></div>
+          <form id="adminProductForm" class="admin-form">
+            <input type="hidden" id="editProductId">
+
+            <div class="form-two-columns">
+              <div>
+                <label for="productName">Product name</label>
+                <input id="productName" required maxlength="100" placeholder="e.g. Gold Necklace">
+              </div>
+              <div>
+                <label for="productCategory">Category</label>
+                <select id="productCategory" required>
+                  <option value="Gold">Gold</option>
+                  <option value="Diamond">Diamond</option>
+                  <option value="Silver">Silver</option>
+                  <option value="Bridal">Bridal</option>
+                </select>
+              </div>
+              <div>
+                <label for="productPrice">Price (₹)</label>
+                <input id="productPrice" type="number" min="1" step="1" required placeholder="10000">
+              </div>
+              <div>
+                <label for="productImage">Image URL</label>
+                <input id="productImage" type="url" placeholder="https://example.com/image.jpg">
+              </div>
+            </div>
+
+            <label for="productDescription">Description</label>
+            <textarea id="productDescription" rows="3" maxlength="500" placeholder="Enter product description"></textarea>
+
+            <div class="form-actions">
+              <button class="btn btn-gold" type="submit" id="saveProductButton">Save Product</button>
+              <button class="btn btn-dark" type="button" id="cancelEditButton" hidden>Cancel Edit</button>
+            </div>
+            <p id="productFormMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="admin-panel">
+          <div class="panel-heading"><h2>All Products</h2><span id="productListCount" class="count-pill">0</span></div>
+          <div id="adminProductList" class="admin-product-list"></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-enquiries">
+        <p class="eyebrow">CUSTOMER MESSAGES</p>
+        <h1>Customer Enquiries</h1>
+        <p class="admin-subtitle">Review demo enquiries submitted from this browser.</p>
+
+        <div class="admin-panel">
+          <div class="panel-heading"><h2>Enquiry Inbox</h2><span id="enquiryListCount" class="count-pill">0</span></div>
+          <div id="adminEnquiryList" class="enquiry-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/admin.js"></script>
+</body>
+</html>

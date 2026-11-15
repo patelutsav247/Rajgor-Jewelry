@@ -1,0 +1,21 @@
+
+const mongoose = require("mongoose");
+
+async function connectDB() {
+  try {
+    const mongoURI = process.env.MONGO_URI;
+
+    if (!mongoURI) {
+      throw new Error("MONGO_URI .env file ma set nathi");
+    }
+
+    await mongoose.connect(mongoURI);
+
+    console.log("MongoDB Connected Successfully!");
+  } catch (error) {
+    console.error("MongoDB Connection Error:", error.message);
+    process.exit(1);
+  }
+}
+
+module.exports = connectDB;

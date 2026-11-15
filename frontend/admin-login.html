@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Rajgor Jewelry</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-login-page">
+  <main class="admin-login">
+    <a class="brand login-brand" href="index.html">♢ RAJGOR <span>JEWELRY</span></a>
+    <div class="login-card">
+      <p class="eyebrow">STORE MANAGEMENT</p>
+      <h1>Admin Login</h1>
+      <p class="login-description">Sign in to preview your jewellery store dashboard.</p>
+      
+      <form id="adminLoginForm" class="admin-form">
+        <label for="adminEmail">Email address</label>
+        <input type="email" id="adminEmail" required autocomplete="username" placeholder="Enter admin email">
+
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" required autocomplete="current-password" placeholder="Enter password">
+
+        <button type="submit" class="btn btn-gold">Login to Dashboard</button>
+        <p id="loginMessage" class="form-message" aria-live="polite"></p>
+      </form>
+
+      <a class="text-link" href="index.html">← Back to Website</a>
+    </div>
+    <p class="small-note">Demo login only. Do not use this as real production authentication.</p>
+  </main>
+  <script src="./js/admin-login.js"></script>
+</body>
+</html>
